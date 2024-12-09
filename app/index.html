@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="BMI Calculator - Friendly Health Theme">
+  <title>FitTrack - Your Modern BMI Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="maininfo.js" defer></script>
+  <script type="module" src="auth-check.js" defer></script>
+  <script type="module" src="activitylogger.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="infobtn" id="infobtn" onclick="showInfo()">i</div>
+    <h1>FitTrack</h1>
+    <div class="dropdown">
+      <button class="dropbtn">&#9776;</button>
+      <div class="dropdown-content">
+        <a href="profile.html" id="editprofile">Edit Profile</a>
+        <a href="login.html" id="logout">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="bmi-container">
+        <div class="gender-selector" id="changegender">
+          <button id="prev-gender" onclick="prevGender()">&#9664;</button>
+          <img id="gender-image" src="/documentation/man.webp" alt="Male Gender" />
+          <button id="next-gender" onclick="nextGender()">&#9654;</button>
+        </div>
+        
+        <div class="coordinate-selector">
+            <canvas id="coordinateCanvas" width="400" height="350"></canvas>
+        </div> 
+        
+        <div class="input-container">
+            <div>
+                <label for="heightInput">Tinggi Badan (cm):</label><br>
+                <input type="number" id="heightInput" min="100" max="200" value="150">
+            </div>
+            <div>
+                <label for="weightInput">Berat Badan (kg):</label><br>
+                <input type="number" id="weightInput" min="20" max="170" value="70">
+            </div>
+        </div>         
+      </section>
+
+      <button class="calculate-btn" id="count" onclick="calculateBMI()">Calculate BMI</button>
+
+      <div class="bmi-result">
+        <p id="bmiValue"></p>
+        <p id="bmiDescription"></p>
+      </div>
+
+      <div class="articles">
+        <h3>Recommended Articles</h3>
+        <div class="article-slider">
+          <div class="article" id="article-1">
+            <a href="https://puskesmasandalas.padang.go.id/bahaya-obesitas/" target="_blank">
+            <img src="/documentation/news/bahaya obesitas.png" alt="Article 1 - Bahaya Obesitas">
+            </a>
+            <p>Bahaya Obesitas</p>
+          </div>
+          <div class="article" id="article-2">
+            <a href="https://hellodoktor.com/pemakanan/obesiti/risiko-kurang-berat-badan/" target="_blank">
+            <img src="/documentation/news/6 bahaya tubuh jika terlalu kurus.jpg" alt="Article 2 - 6 Bahaya Tubuh Jika Terlalu Kurus">
+            </a>
+            <p>6 Bahaya Tubuh Jika Terlalu Kurus</p>
+          </div>
+          <div class="article" id="article-3">
+            <a href="https://hellosehat.com/nutrisi/obesitas/fakta-seputar-obesitas-di-indonesia/" target="_blank">
+            <img src="/documentation/news/Fakta Seputar Obesitas di Indonesia.jpg" alt="Article 3 - Fakta Seputar Obesitas di Indonesia">
+            </a>
+            <p>Fakta Seputar Obesitas di Indonesia</p>
+          </div>
+          <div class="article" id="article-4">
+            <a href="https://web.facebook.com/klikdokter/posts/banyak-yang-salah-kaprah-dengan-tujuan-menurunkan-berat-badan-yaitu-untuk-mendap/10163602824230650/?_rdc=1&_rdr" target="_blank">
+            <img src="/documentation/news/Bahaya Jika Terlalu Kurus.jpg" alt="Article 4 - Bahaya Jika Terlalu Kurus">
+            </a>
+            <p>Bahaya Jika Terlalu Kurus</p>
+          </div>
+          <div class="article" id="article-5">
+            <a href="https://p2ptm.kemkes.go.id/infographic-p2ptm/obesitas/tips-mengatasi-obesitas" target="_blank">
+            <img src="/documentation/news/Tips Mengatasi Obesitas.png" alt="Article 5 - Tips Mengatasi Obesitas">
+            </a>
+            <p>Tips Mengatasi Obesitas</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="info-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeInfo()">&times;</span>
+      <h2>About This Website</h2>
+      <p>Website ini dibuat untuk memenuhi tugas mata kuliah <strong>Pengembangan Aplikasi Web dan Mobile</strong> untuk membuat website <strong>Virtual Lab</strong></p>
+      <p>Topik virtual lab yang dibangun berdasarkan mata kuliah olahraga. Website akan menghitung <strong>BMI (Body Mass Index)</strong> dengan menggunakan desain yang interaktif</p>
+      <hr>
+      <p>Website lebih optimal jika diakses menggunakan device laptop atau pc</p>
+      <p>*Tidak disarankan membuka website melalui device smartphone</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 FitTrack. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
